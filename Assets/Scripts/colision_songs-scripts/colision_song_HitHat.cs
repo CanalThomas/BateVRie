@@ -11,7 +11,7 @@ public class colision_song_HitHat : MonoBehaviour
         tickSource.GetComponent<AudioSource>();
     }
      
-    private void OnCollisionEnter(Collider infoObjet)
+    private void OnCollisionEnter(Collision infoObjet)
     {
         if (infoObjet.gameObject.tag == "Drumsteaks")
         {
