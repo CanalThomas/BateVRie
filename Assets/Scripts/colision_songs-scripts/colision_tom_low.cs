@@ -11,11 +11,12 @@ public class colision_tom_low : MonoBehaviour
         tickSource.GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Drumsteaks")
+        if (other.gameObject.tag == "Drumsteaks")
         {
             //jouer le sons de tom low
+            Debug.Log("collision tom low");
             tickSource.Play();
         }
     }

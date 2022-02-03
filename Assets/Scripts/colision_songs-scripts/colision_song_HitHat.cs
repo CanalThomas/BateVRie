@@ -8,7 +8,6 @@ public class colision_song_HitHat : MonoBehaviour
     public AudioSource tickSource;
     void Start()
     {
-        Debug.Log("Start");
 
         tickSource.GetComponent<AudioSource>();
     }
