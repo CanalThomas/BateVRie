@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class colision_song_Crash : MonoBehaviour
+public class colision_song_Kick : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource tickSource;
@@ -15,7 +15,7 @@ public class colision_song_Crash : MonoBehaviour
     {
         if (infoObjet.gameObject.tag == "Drumsteaks")
         {
-            //jouer le sons de Crash
+            //jouer le sons de kick
             tickSource.Play();
         }
     }

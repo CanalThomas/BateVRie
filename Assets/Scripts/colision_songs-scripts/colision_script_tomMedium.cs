@@ -5,14 +5,18 @@ using UnityEngine;
 public class colision_script_tomMedium : MonoBehaviour
 {
     // Start is called before the first frame update
+    public AudioSource tickSource;
     void Start()
     {
-        
+        tickSource.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider infoObjet)
     {
-        
+        if (infoObjet.gameObject.tag == "Drumsteaks")
+        {
+            //jouer le sons de tom Medium
+            tickSource.Play();
+        }
     }
 }

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Colision_song_ride : MonoBehaviour
 {
     // Start is called before the first frame update
+    public AudioSource tickSource;
     void Start()
     {
-        
+        tickSource.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider infoObjet)
     {
-        
+        if (infoObjet.gameObject.tag == "Drumsteaks")
+        {
+            //jouer le sons de ride
+            tickSource.Play();
+        }
     }
 }
