@@ -11,9 +11,9 @@ public class colision_song_tomHigh : MonoBehaviour
         tickSource.GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider infoObjet)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (infoObjet.gameObject.tag == "Drumsteaks")
+        if (collision.gameObject.tag == "Drumsteaks")
         {
             //jouer le sons de tom High
             tickSource.Play();

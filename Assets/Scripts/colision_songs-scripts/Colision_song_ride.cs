@@ -11,9 +11,9 @@ public class Colision_song_ride : MonoBehaviour
         tickSource.GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider infoObjet)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (infoObjet.gameObject.tag == "Drumsteaks")
+        if (collision.gameObject.tag == "Drumsteaks")
         {
             //jouer le sons de ride
             tickSource.Play();
