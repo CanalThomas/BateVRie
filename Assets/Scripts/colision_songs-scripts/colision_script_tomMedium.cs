@@ -10,8 +10,8 @@ public class colision_script_tomMedium : MonoBehaviour
     {
         tickSource.GetComponent<AudioSource>();
     }
-
-    private void OnTriggerEnter(Collider infoObjet)
+     
+    private void OnCollisionEnter(Collider infoObjet)
     {
         if (infoObjet.gameObject.tag == "Drumsteaks")
         {
