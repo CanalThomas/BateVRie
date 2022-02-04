@@ -7,7 +7,10 @@ public class Move : MonoBehaviour
 {
 
     [SerializeField] private InputActionReference _actionReference = null;
-    private Vector3 deplacement;
+    [SerializeField] private InputActionReference _actionReference1 = null;
+  
+
+    private Vector2 deplacement;
     private float speedshutZ;
 
 
@@ -19,19 +22,32 @@ public class Move : MonoBehaviour
         switch (_actionReference.action.expectedControlType)
         {
             case "Axis":
-                speedshutZ = _actionReference.action.ReadValue<float>();  // pour le deplacement en Z
+                speedshutZ = _actionReference.action.ReadValue<float>()*0.001f;  // pour le deplacement en Z
                 break;
             case "Vector2":
-                 deplacement = _actionReference.action.ReadValue<Vector2>(); // pour le deplacement en x et y 
+                 deplacement = _actionReference.action.ReadValue<Vector2>()*Time.deltaTime; // pour le deplacement en x et y 
                 break;
             default:
                 break;
         }
+
+        switch (_actionReference1.action.expectedControlType)
+        {
+            case "Axis":
+                speedshutZ = _actionReference1.action.ReadValue<float>() * 0.001f;  // pour le deplacement en Z
+                break;
+            case "Vector2":
+                deplacement = _actionReference1.action.ReadValue<Vector2>() * Time.deltaTime; // pour le deplacement en x et y 
+                break;
+            default:
+                break;
+        }
+
         if (transform.position.y < Camera.main.transform.position.y)
         {
             transform.Translate(new Vector3(deplacement.x, speedshutZ, deplacement.y));
         }
-        else
+        if(transform.position.y> Camera.main.transform.position.y)
         {
             transform.Translate(new Vector3(deplacement.x, speedshutZ, -deplacement.y));
         }
