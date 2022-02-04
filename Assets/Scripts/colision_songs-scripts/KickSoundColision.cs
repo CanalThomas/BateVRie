@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class SongOnCollision : MonoBehaviour
+
+public class KickSoundColision : MonoBehaviour
 {
     private GameObject go;
     private Queue<GameObject> goQueue;
@@ -31,17 +33,14 @@ public class SongOnCollision : MonoBehaviour
             go.AddComponent<AudioSource>().clip = Audio;
             goQueue.Enqueue(go);
         }
-    }
 
-    private void OnTriggerEnter(Collider infoObjet)
-    {
-
-        if (infoObjet.gameObject.tag == "Drumsteaks")
+        if (Input.GetKeyDown("space"))
         {
-            // Debug.Log("Collision ok");
-
             goQueue.Dequeue().GetComponent<AudioSource>().Play();
         }
 
     }
+
+
+
 }
