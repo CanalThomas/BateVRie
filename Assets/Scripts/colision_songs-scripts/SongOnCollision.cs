@@ -2,27 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class SongOnCollision : MonoBehaviour
 {
-    private List<AudioSource> listAudio;
-    private int count = 0;
+    private GameObject go;
+    private Queue<GameObject> goQueue;
+    public AudioClip Audio;
     private void Start()
     {
-        for (int i=0; i< 10; i++)
+        goQueue = new Queue<GameObject>(50);
+        for (int i = 0; i < goQueue.Count; i++)
         {
-            listAudio[i] = GetComponent<AudioSource>();
+            go = new GameObject();
+            go.transform.parent = transform;
+            go.transform.position = transform.position;
+            go.AddComponent<AudioSource>().clip = Audio;
+            goQueue.Enqueue(go);
         }
     }
+
+    private void Update()
+    {
+        int taille = goQueue.Count;
+        for (int i = 0; i < 50 - taille; i++)
+        {
+            go = new GameObject();
+            go.transform.parent = transform;
+            go.transform.position = transform.position;
+            go.AddComponent<AudioSource>().clip = Audio;
+            goQueue.Enqueue(go);
+        }
+        Debug.Log(taille);
+    }
+
     private void OnTriggerEnter(Collider infoObjet)
     {
 
         if (infoObjet.gameObject.tag == "Drumsteaks")
         {
-            if (count > 9) count = 0;
-            if (true) listAudio[count].Play();
-            count++;
+            // Debug.Log("Collision ok");
+
+            goQueue.Dequeue().GetComponent<AudioSource>().Play();
         }
-        
+
     }
 }

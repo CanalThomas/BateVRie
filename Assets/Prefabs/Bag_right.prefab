@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7332813490359709220}
   m_Layer: 0
   m_Name: Bag_right
-  m_TagString: Untagged
+  m_TagString: Drumsteaks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
