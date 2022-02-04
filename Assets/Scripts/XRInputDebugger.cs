@@ -47,12 +47,12 @@ namespace ECNBaseCode.Sample
             switch (_actionReference.action.expectedControlType)
             {
                 case "Axis":
-                    Debug.Log(_actionReference.name + "/" + _actionReference.action.name + ": " +
-                        _actionReference.action.ReadValue<float>());
+                    //Debug.Log(_actionReference.name + "/" + _actionReference.action.name + ": " +
+                    //    _actionReference.action.ReadValue<float>());
                     break;
                 case "Vector2":
-                    Debug.Log(_actionReference.name + "/" + _actionReference.action.name + ": " +
-                        _actionReference.action.ReadValue<Vector2>());
+                    //Debug.Log(_actionReference.name + "/" + _actionReference.action.name + ": " +
+                    //    _actionReference.action.ReadValue<Vector2>());
                     break;
                 default:
                     break;
